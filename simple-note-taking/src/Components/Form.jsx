@@ -2,7 +2,7 @@ import React from 'react';
 import moment from "moment";
 import { v4 as uuid } from "uuid";
 import { useDispatch, useSelector } from "react-redux"; 
-import { addTodo, changeDate } from '../Redux/Actions';
+import { addNote, changeDate } from '../Redux/Actions';
 
 const Form = () => {
     const dispatch = useDispatch();
@@ -35,8 +35,8 @@ const Form = () => {
             time: new Date().getTime()
         };
 
-        // Dispatches addTodo action
-        dispatch(addTodo(payload));
+        // Dispatches addNote action
+        dispatch(addNote(payload));
 
         // Closes Form
         closeForm();

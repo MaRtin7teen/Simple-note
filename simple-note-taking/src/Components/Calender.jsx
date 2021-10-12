@@ -24,7 +24,7 @@ const Calender = () => {
 
     // Changes selected date
     const changeSelected = (date) => {
-        console.log(date);
+        // console.log(date);
         dispatch(changeDate(date));
     }
 
