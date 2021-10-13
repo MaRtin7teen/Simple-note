@@ -10,16 +10,16 @@ const Calender = () => {
 
     // Variable today (value: Todays date)
     const today = new Date();
+
+    // Variable yest (value: Yesterdays date)
+    const yest = new Date().setDate(today.getDate() - 1);
     
     // Variable selecetd [Selected date] (value: default none)
     const selected = useSelector(state => state.selected);
 
     // Disable dates that have already passed in the Calender (Cal)
     const disableTile = ({ activeStartDate, date, view }) => {
-        // console.log(date.getDate(), today.getDate());
-        // const yest = new Date(today.setDate(today.getDate() - 1));
-        // console.log(yest, today)
-        return date < today;
+        return date < yest;
     };
 
     // Changes selected date
@@ -35,7 +35,7 @@ const Calender = () => {
 
             {/* Calender (react-calender) */}
             <Cal className="container-fluid rounded" value={selected || today} onChange={changeSelected} view="month" tileDisabled={disableTile} tileClassName="rounded-circle" />
-
+        
             {
                 selected ? <Form /> : false
             }

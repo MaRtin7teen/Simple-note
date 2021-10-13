@@ -5,7 +5,7 @@ import Card from './Card';
 const Notes = () => {
 
     // Getting values of notes from Store
-    const { notes } = useSelector(state => state);
+    const notes = useSelector(state => state.notes).sort((a,b) => a.date === b.date ? b.time - a.time : new Date(b.date) - new Date(a.date));
 
     return (
         <div className="mt-4">
@@ -18,7 +18,6 @@ const Notes = () => {
                 {
                     notes.length ? 
                     notes
-                    .sort((a,b) => a.date === b.date ? b.time - a.time : new Date(b.date) - new Date(a.date))
                     .map(data => <Card data={data} key={data.id} />) : <h5 className="text-muted">Add notes to see them here</h5>
                 }
             </div>
