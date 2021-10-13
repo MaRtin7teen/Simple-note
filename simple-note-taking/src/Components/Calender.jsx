@@ -11,7 +11,7 @@ const Calender = () => {
     // Variable today (value: Todays date)
     const today = new Date();
 
-    // Variable yest (value: Yesterdays date)
+    // Variable yest (value: Yesterday's date)
     const yest = new Date().setDate(today.getDate() - 1);
     
     // Variable selecetd [Selected date] (value: default none)
@@ -35,7 +35,7 @@ const Calender = () => {
 
             {/* Calender (react-calender) */}
             <Cal className="container-fluid rounded" value={selected || today} onChange={changeSelected} view="month" tileDisabled={disableTile} tileClassName="rounded-circle" />
-        
+
             {
                 selected ? <Form /> : false
             }
